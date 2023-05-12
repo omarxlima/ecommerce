@@ -29,6 +29,7 @@
     <div class="container-scroller">
 
         @include('layouts.includes.admin.navbar')
+        
         <div class="container-fluid page-body-wrapper">
             @include('layouts.includes.admin.sidebar')
 
