@@ -4,16 +4,19 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
+        @if (session('message'))
+            <div class="alert alert-success">{{ session('message') }}</div>
+        @endif
         <div class="card">
             <div class="card-header">
                 <h4>
-                  Produtos
-                    <a href="{{ route('products.index') }}"class="btn btn-primary float-end text-white">VOLTAR</a>
+                    Produto
+                    <a href="{{ route('product.create') }}"class="btn btn-primary float-end">Adiciona Produto</a>
                 </h4>
             </div>
 
             <div class="card-body">
-
+               
 
             </div>
         </div>

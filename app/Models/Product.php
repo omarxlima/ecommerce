@@ -22,9 +22,16 @@ class Product extends Model
         'quantity',
         'trending',
         'status',
-        'meta-title',
-        'meta-keyword',
-        'meta-description'
+        'meta_title',
+        'meta_keyword',
+        'meta_description'
 
     ];
+
+    public function category(){
+        return $this->hasOne(Category::class);
+    }
+    public function productImages(){
+        return $this->hasMany(ProductImage::class, 'product_id', 'id');
+    }
 }

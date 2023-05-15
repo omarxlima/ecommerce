@@ -26,9 +26,9 @@ return new class extends Migration
             $table->tinyInteger('trending')->default('0')->comment('1=trendin,0=not-trending');
             $table->tinyInteger('status')->default('0')->comment('1=hidden,0=visible');
 
-            $table->string('meta-title')->nullable;
-            $table->string('meta-keyword')->nullable;
-            $table->string('meta-description')->nullable;
+            $table->string('meta_title')->nullable;
+            $table->string('meta_keyword')->nullable;
+            $table->string('meta_description')->nullable;
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
