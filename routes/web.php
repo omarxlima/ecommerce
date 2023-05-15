@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,19 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('category', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('category.index');
     Route::get('category/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('category.create');
     Route::post('category/store', [App\Http\Controllers\Admin\CategoryController::class,'store'])->name('category.store');
-    // Route::get('category/edit/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('category.edit');
-    // Route::put('category/update/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('category.update');
+    Route::get('category/edit/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('category.edit');
+    Route::put('category/update/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('category.update');
+    Route::delete('category/destroy/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'delete'])->name('category.delete');
+
+    //product routes
+    Route::controller(App\Http\Controllers\Admin\ProductController::class)->group(function (){
+        Route::get('/products', 'index')->name('products.index');
+        Route::get('/product', 'create')->name('product.create');
+
+    });
+
+    //brands routes
+
+    Route::get('/brands',App\Http\Livewire\Admin\Brand\Index::class)->name('brand.index');
+
 });

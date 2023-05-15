@@ -22,14 +22,15 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'slug' => 'required|string',
-            'description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png',
-            'meta_title' => 'required|string',
-            'meta_keyword' => 'required|string',
-            'meta_description' => 'required|string',
+            'name' => ['required', 'string'],
+            'slug' =>  ['required', 'string'],
+            'description' =>  ['required', 'string'],
+            'image' =>  ['nullable', 'mimes:jpg,jpeg,png'],
+            'meta_title' =>  ['required', 'string'],
+            'meta_keyword' =>  ['required', 'string'],
+            'meta_description' =>  ['required', 'string'],
 
         ];
+
     }
 }
